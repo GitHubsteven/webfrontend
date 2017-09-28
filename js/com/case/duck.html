@@ -1,0 +1,72 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="wangtd"/>
+    <title>Colors</title>
+    <style type="text/css">
+        .container {
+            position: relative;
+            margin: 100px auto;
+            width: 720px;
+            height: 450px;
+            overflow: hidden;
+            border: solid 1px #000000;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <img id="image" style="position:absolute;top:0;left:0;width:720px;height:450px" src="http://hiphotos.baidu.com/442595744/pic/item/5c0b7d2e0dd722d7023bf63e.jpg" alt=""/>
+</div>
+<div id="info"></div>
+<script type="text/javascript">
+    var imageHandler = function(id,max,min) {
+        var _handler = document.getElementById(id);
+        var _moveTop = 0;
+        var _moveLeft = 0;
+        var _moveFlag = false;
+        function startMove() {
+            _moveFlag = true;
+            var evt = window.event;
+            _moveTop = evt.clientY - parseInt(_handler.style.top);
+            _moveLeft = evt.clientX - parseInt(_handler.style.left);
+        };
+        function doMove() {
+            if (!_moveFlag) {
+                return false;
+            }
+            var evt = window.event;
+            _handler.style.top = evt.clientY - _moveTop + "px";
+            _handler.style.left = evt.clientX - _moveLeft + "px";
+        };
+        function endMove() {
+            _moveFlag = false;
+            _handler.releaseCapture();
+        };
+        function doScale() {
+            var evt = window.event;
+            var topPercent = (evt.clientY - _handler.getBoundingClientRect().top)/parseInt(_handler.style.height);
+            var leftPercent = (evt.clientX - _handler.getBoundingClientRect().left)/parseInt(_handler.style.width);
+            if (_handler.scrollWidth + evt.wheelDelta < min || _handler.scrollWidth + evt.wheelDelta > max) {
+                return;
+            }
+            var percent = _handler.scrollHeight/_handler.scrollWidth;
+            _handler.style.width = _handler.scrollWidth + evt.wheelDelta + "px";
+            _handler.style.height = parseInt(_handler.style.width)*percent + "px";
+
+            _handler.style.top = parseInt(_handler.style.top) - topPercent*percent*evt.wheelDelta + "px";
+            _handler.style.left = parseInt(_handler.style.left) - leftPercent*evt.wheelDelta + "px";
+        };
+
+        _handler.onmousedown = startMove;
+        _handler.onmousewheel = doScale;
+        document.onmousemove = doMove;
+        document.onmouseup = endMove;
+    };
+    imageHandler("image", 1440, 144);
+</script>
+</body>
+</html>
