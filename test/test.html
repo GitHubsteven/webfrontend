@@ -5,8 +5,44 @@
     <title>Title</title>
 </head>
 <body>
-    <div class="">
-        <button id = "button1">button1</button>
+<div class="">
+    <div style="text-align: center">
+        <input type="text" pattern="^[1-9][0-9]?$|^100$" name="cost" required>
     </div>
+    <form>
+        <input type="text" pattern="[a-zA-Z0-9]{6}" name="formName" />
+        <input type="submit" value="OK" />
+    </form>
+    <input type="text"  type="number" NAME="name" min="0" max="99" size="1" maxlength="2">
+
+    <input type="number" min="0" max="100" step="5">
+    <input type="range" min="0" max="15" step="5">
+    <button id="button1" onclick="pop('alert')">button1</button>
+    <button id="button2" onclick="pop('confirm')">button2</button>
+    <button id="button3" onclick="pop('prompt')">button3</button>
+</div>
+<script>
+    function pop(type) {
+        var result = "";
+        switch (type) {
+            case "alert":
+            {
+                var result = window.alert("alert");  //alert won't return result;
+            }
+                break;
+            case "confirm":
+            {
+                var result = window.confirm("confirm");   //return true if confirmed else return false
+            }
+                break;
+            default:
+            {
+                var result = window.prompt("prompt", "context");  //return context if confirmed or null if cancelled
+            }
+                break;
+        }
+        console.log(result);
+    }
+</script>
 </body>
 </html>

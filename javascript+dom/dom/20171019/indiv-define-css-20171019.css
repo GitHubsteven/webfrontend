@@ -1,0 +1,11 @@
+#myelement {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.mydiv {
+    position: absolute;
+    left: 50px;
+    top: 90px;
+}
