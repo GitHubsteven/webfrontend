@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../common-css/toolkit-css.css">
+    <meta charset="UTF-8">
+    <title>Batch-Insert-Sql</title>
+</head>
+<body>
+    <div style="margin-top: 50px">
+        <label><strong>Sql Template</strong></label>
+        <textarea id="sql_template" rows="5" class="firstDiv"></textarea>
+    </div>
+    <div>
+        <div class="div-1On2-width">
+            <div>
+                <label><strong>Partition Prefix &nbsp &nbsp</strong></label>
+            </div>
+            <div>
+                <select id="partition_prefix" class="select">
+                    <option value="_s">store</option>
+                    <option value="_c">channel</option>
+                    <option value="_">year</option>
+                    <option value="_c">cart</option>
+                </select>
+            </div>
+        </div>
+        <div class="div-1On2-width">
+            <label><strong>Range</strong></label>
+            <label>
+                <small>(Multi Range divided by ";",add "-" between startNumber and endNumber)</small>
+            </label>
+            <input id="range" type="text" size="120" placeholder="1-4;6-10">
+        </div>
+    </div>
+    <div>
+        <label><strong>Result(Batch Sql)</strong></label>
+        <textarea id="batch_sql" rows="5" class="firstDiv"></textarea>
+    </div>
+    <div>
+       <button id = "btn_create">Create Sql</button>
+    </div>
+</body>
+</html>
