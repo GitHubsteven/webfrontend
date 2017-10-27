@@ -7,13 +7,9 @@ function matchSql() {
     var param_to_match_context = document.getElementById("param_to_match").value;
 
     //parse sql_to_match
-    var sql_array = sql_to_match_context.split(":");
-    var real_sql_to_match_context = sql_array.length > 1 ? sql_array[1].trim() : sql_array[0].trim();
-
-
+    var real_sql_to_match_context = delete_prefix(sql_to_match_context);
     //parse params
-    var param_array = param_to_match_context.split(":");
-    var real_array = param_array.length > 1 ? param_array[1] : param_array[0];
+    var real_array = delete_prefix(param_to_match_context);
     //var indexOf = sql_to_match_context.indexOf("?");
     var real_param_with_type_array = real_array.split(",");
     var final_params = [];
@@ -35,7 +31,7 @@ function matchSql() {
 
     var count = 0;
     var index = real_sql_to_match_context.indexOf("?");
-    while (index  != -1) {
+    while (index != -1) {
         var final_param = final_params[count++];
         let para = "null";
         if (final_param) {
@@ -59,4 +55,9 @@ function matchSql() {
     }
     document.getElementById("match_result").value = real_sql_to_match_context;
 
+}
+
+function delete_prefix(context) {
+    var sql_array = context.split(":");
+    return sql_array.length > 1 ? sql_array[1].trim() : sql_array[0].trim();
 }
