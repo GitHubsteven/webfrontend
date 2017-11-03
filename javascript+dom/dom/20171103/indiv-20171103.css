@@ -1,0 +1,37 @@
+p {
+  color: yellow;
+  font-family: "arial", sans-serif;
+  font-size: 1.2em;
+}
+body {
+  color: white;
+  background-color: black;
+}
+.special{
+  font-style: italic;
+}
+/*define special css class for some special element*/
+h2.special{
+  text-transform: uppercase;
+}
+
+#purchases{
+  border: 1 px solid white;
+  background-color: #333;
+  color:#ccc;
+  padding:1em;
+}
+
+#purchases li{
+   font-weight: bold;
+}
+
+select{
+  font-size: medium;
+}
+select option{
+  font-style: italic;
+}
+
+/*define tag style ,and you can define tag attribute style too.sound interesting,compiler can
+determine the html labe structre*/
