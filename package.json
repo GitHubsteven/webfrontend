@@ -1,0 +1,31 @@
+{
+  "name": "20171109-bootstrap-test",
+  "version": "1.0.0",
+  "description": "bootsrap-test",
+  "main": "index",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ladash": "^1.2.0",
+    "lodash": "^4.17.4",
+    "local": "^0.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "bootstrap-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitHubsteven/webfrontend.git"
+  },
+  "keywords": [
+    "web-frond"
+  ],
+  "author": "rongbin.xie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GitHubsteven/webfrontend/issues"
+  },
+  "homepage": "https://github.com/GitHubsteven/webfrontend#readme"
+}
