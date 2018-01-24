@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inline and Input Group</title>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" rel="stylesheet">
+    <link href="../node_modules/react-bootstrap-table-extra-panels/css/react-bootstrap-table-all.min.css">
+</head>
+<body>
+    <div class = "panel panel-default">
+        <div class=" panel-head">
+        <label>title</label>
+    </div>
+        <div class="col-sm-12 panel-body">
+            <form class="form-inline">
+                <div class="form-group ">
+                    <label for="exampleInputName2">Name</label>
+                    <input type="text" class="form-control" id="exampleInputName2" placeholder="hello,world" >
+                </div>
+                <div class="form-group ">
+                    <label for="exampleInputName3">Email</label>
+                    <input style="width:300px" type="email" class="form-control" id="exampleInputName3" placeholder="hello@world">
+                </div>
+                <button type="submit" class="btn btn-danger">Send invitation</button>
+            </form>
+
+            <div class="input-group ">
+                <!--id="basic-addon1"-->
+                <label class="input-group-addon">@</label>
+                <input class="form-control" placeholder="hello1" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-addon" id="basic-addon2">@example.com</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

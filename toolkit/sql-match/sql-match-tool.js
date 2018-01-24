@@ -2,6 +2,7 @@
  * Created by dell on 2017/10/26.
  */
 
+//todo 参数括号会影响匹配
 function matchSql() {
     var sql_to_match_context = document.getElementById("sql_to_match").value;
     var param_to_match_context = document.getElementById("param_to_match").value;
@@ -58,6 +59,12 @@ function matchSql() {
 }
 
 function delete_prefix(context) {
-    var sql_array = context.split(":");
-    return sql_array.length > 1 ? sql_array[1].trim() : sql_array[0].trim();
+    var splitIndex = context.indexOf(":");
+    if(splitIndex != -1){
+        var sql_array = context.substring(splitIndex+1);
+        return sql_array.trim();
+    }else{
+        return context;
+    }
+
 }
