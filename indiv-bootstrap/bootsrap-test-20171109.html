@@ -14,25 +14,32 @@
 <head>
     <meta charset="UTF-8">
     <title>bootstrap test</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bootstrap-test-20171109.js"></script>
 </head>
 <body>
-    <form class="form-inline">
-        <div>
-            <label>username:</label>
-            <input type="text"/>
+<div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" placeholder="twitterhandle">
+            <span class="input-group-addon" .src-only="true">@</span>
+            <input type="text" class="form-control" placeholder="twitterhandle">
         </div>
-        <div>
-            <label>password:</label>
-            <input type="password"/>
+        <br>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-addon">.00</span>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control">
+            <span class="input-group-addon">.00</span>
         </div>
     </form>
-
-    <div>
-        <button onclick="showPrompt()">showPrompt</button>
-    </div>
-<div class="box"></div>
-    <div class="box"></div>
+</div>
 </body>
 </html>
