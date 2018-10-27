@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var crypto = require('crypto');
+let express = require('express');
+let router = express.Router();
+let crypto = require('crypto');
+
 module.exports = router;
 router.use(function timelog(req, res, next) {
     console.log('time:', Date.now());
@@ -23,10 +24,10 @@ router.post('/reg', function (req, res) {
         return res.redirect('/reg');
     }
 
-    var md5 = crypto.createHash('md5');
-    var password = md5.update(req.body.password).digest('base64');
+    let md5 = crypto.createHash('md5');
+    let password = md5.update(req.body.password).digest('base64');
 
-    var newUser = new User({
+    let newUser = new User({
         name: req.body.username,
         password: password
     });
@@ -37,7 +38,7 @@ router.post('/reg', function (req, res) {
             return res.redirect('/reg');
         }
         req.session.user = newUser;
-        req.flash('success', "reg succeed")
+        req.flash('success', "reg succeed");
         res.redirect('/');
     })
 });
