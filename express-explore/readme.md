@@ -1,0 +1,1 @@
+This project created to test any tech for project express-ejs, in fact, project express-ejs is designed to practice express too.
