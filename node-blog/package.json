@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "simple node-blog",
+  "main": "app.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GitHubsteven/webfrontend.git"
+  },
+  "keywords": [
+    "node-blog"
+  ],
+  "author": "asaland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GitHubsteven/webfrontend/issues"
+  },
+  "homepage": "https://github.com/GitHubsteven/webfrontend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.7"
+  }
+}
