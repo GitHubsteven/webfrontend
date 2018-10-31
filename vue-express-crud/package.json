@@ -1,0 +1,23 @@
+{
+  "name": "vue-express-crud",
+  "version": "1.0.0",
+  "description": "vue- express-crud simple example",
+  "main": "index.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "keywords": [
+    "vue",
+    "express",
+    "example"
+  ],
+  "author": "asaland",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.8",
+    "nodemon": "^1.18.5"
+  }
+}
