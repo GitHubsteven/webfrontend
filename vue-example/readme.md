@@ -1,0 +1,1 @@
+module designed for frontend light framework vue.
