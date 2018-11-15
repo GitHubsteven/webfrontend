@@ -18,7 +18,7 @@ rebel.xml
 # static project
 .tmp/
 npm-debug.log
-.*/node_modules/
+node_modules/
 typings/
 dist/
 
