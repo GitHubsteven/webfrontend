@@ -1,4 +1,4 @@
-cansult blog :https://www.techiediaries.com/vue-js-express-tutorial/
+[consulted blog](https://www.techiediaries.com/vue-js-express-tutorial/)
 
 commands to create project 
 ```
@@ -41,7 +41,4 @@ vue create frontend
 cd fontend
 npm install --save axios
 ```
-4. create vue components
-```
 
-```
