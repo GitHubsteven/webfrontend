@@ -2,13 +2,14 @@
   "name": "20171109-bootstrap-test",
   "version": "1.0.0",
   "description": "bootsrap-test",
-  "main": "index",
-  "directories": {
-    "test": "test"
+  "author": "rongbin.xie",
+  "scripts": {
+    "test": "bootstrap-test"
   },
   "dependencies": {
     "angular-ui-bootstrap": "^2.5.6",
     "bootswatch": "^4.0.0-beta.2",
+    "element-ui": "^2.4.5",
     "express": "^4.16.2",
     "express-flash-messages": "^0.1.1",
     "express-generator": "^4.16.0",
@@ -23,21 +24,25 @@
     "react": "^16.1.1",
     "react-bootstrap-table-extra-panels": "^2.1.9"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "bootstrap-test"
+  "devDependencies": {
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "vue-cli-plugin-element": "^1.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GitHubsteven/webfrontend.git"
-  },
-  "keywords": [
-    "web-frond"
-  ],
-  "author": "rongbin.xie",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GitHubsteven/webfrontend/issues"
   },
-  "homepage": "https://github.com/GitHubsteven/webfrontend#readme"
+  "directories": {
+    "test": "test"
+  },
+  "homepage": "https://github.com/GitHubsteven/webfrontend#readme",
+  "keywords": [
+    "web-frond"
+  ],
+  "license": "MIT",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitHubsteven/webfrontend.git"
+  }
 }
