@@ -29,6 +29,8 @@
     </div>
 </template>
 <script>
+  /* eslint-disable */
+
     import {APIService} from '../APIService';
 
     const apiService = new APIService();

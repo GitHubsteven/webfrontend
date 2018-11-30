@@ -23,5 +23,5 @@ server.listen(port, hostname, () => {
 
 how to start a project
 ```
-
+node app.js/server.js
 ```

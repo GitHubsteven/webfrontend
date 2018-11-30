@@ -10,7 +10,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="todo in todos" @click="selectTodo(todo)">
+            <tr v-for ="todo in todos" :key="todo" @click="selectTodo(todo)">
                 <th></th>
                 <td>{{todo.name}}</td>
                 <td>
@@ -23,6 +23,7 @@
     </div>
 </template>
 <script>
+  /* eslint-disable */
     import {APIService} from '../APIService';
 
     // const API_URL = "http://localhost:4000";
