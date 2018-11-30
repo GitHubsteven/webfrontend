@@ -44,7 +44,7 @@
   }
 
   .body {
-    top: 9%;
+    top: 60px;
     height: 90%;
     position: absolute;
     border: 1px solid #eee;
@@ -55,8 +55,7 @@
     position: absolute;
     top: 0;
     width: 100%;
-    height: 9%;
-    /*background-color: #ffe4c4;*/
+    height: 60px;
   }
 
   main {
@@ -70,12 +69,12 @@
     bottom: 0;
     width: 100%;
     height: 5%;
-    background-color: #ffffff;
+    background-color: #fffffe;
   }
 
   .aside {
     width: 15%;
-    background-color: rgb(238, 241, 246)
+    background-color: #FEFDE9;
   }
 
   .main {

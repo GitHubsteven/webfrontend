@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import User from '@/components/User'
 import Register from '@/components/Register'
 import Aside from '@/components/Aside'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/aside',
       name: 'Aside',
       component: Aside
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
