@@ -27,7 +27,8 @@
   "devDependencies": {
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
-    "vue-cli-plugin-element": "^1.0.0"
+    "vue-cli-plugin-element": "^1.0.0",
+    "webpack": "^4.26.1"
   },
   "bugs": {
     "url": "https://github.com/GitHubsteven/webfrontend/issues"

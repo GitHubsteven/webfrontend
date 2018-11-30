@@ -1,0 +1,21 @@
+{
+  "name": "webpack-test",
+  "version": "1.0.0",
+  "description": "webpack sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack",
+    "server": "webpack-dev-server --open"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "asaland",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

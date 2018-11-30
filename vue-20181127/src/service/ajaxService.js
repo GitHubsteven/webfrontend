@@ -2,10 +2,7 @@
 let axios = require('axios');
 
 function get(url) {
-  axios.get(url)
-    .then(res => {
-      console.log("res: {}", res)
-    })
+  return axios.get(url);
 }
 
 exports.get = get;
