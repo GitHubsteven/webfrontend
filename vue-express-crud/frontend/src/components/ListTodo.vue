@@ -1,6 +1,7 @@
+<!--/* eslint-disable */-->
 <template>
     <div>
-        <h1>Todos ()</h1>
+        <h1>Todos</h1>
         <table class="col-sm-8 offset-col-sm-2 table table-bordered table-hover">
             <thead>
             <tr>
@@ -10,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for ="todo in todos" :key="todo" @click="selectTodo(todo)">
+            <tr v-for="todo in todos" v-bind:key="todo.id" @click="selectTodo(todo)">
                 <th></th>
                 <td>{{todo.name}}</td>
                 <td>
@@ -20,48 +21,49 @@
             </tr>
             </tbody>
         </table>
+        <router-link to="/create">create todo</router-link>
     </div>
 </template>
 <script>
   /* eslint-disable */
-    import {APIService} from '../APIService';
+  import {APIService} from '../APIService';
 
-    // const API_URL = "http://localhost:4000";
+  // const API_URL = "http://localhost:4000";
 
-    const apiService = new APIService();
-    export default {
-        name: 'ListTodo',
-        comments: {},
-        data() {
-            return {
-                todos: [],
-                numberOfTodos: 0
-            };
-        },
-        methods: {
-            getTodos() {
-                apiService.getTodos().then((resp) => {
-                    this.todos = resp;
-                    this.numberOfTodos = resp.length;
-                });
-            },
-            deleteTodo(todo) {
-                apiService.deleteTodo(todo).then((r) => {
-                    if (r.status === 204) {
-                        alert('Todo deleted!');
-                        this.$router.go();
-                    }
-                })
-            },
+  const apiService = new APIService();
+  export default {
+    name: 'ListTodo',
+    comments: {},
+    data() {
+      return {
+        todos: [],
+        numberOfTodos: 0
+      };
+    },
+    methods: {
+      getTodos() {
+        apiService.getTodos().then((resp) => {
+          this.todos = resp;
+          this.numberOfTodos = resp.length;
+        });
+      },
+      deleteTodo(todo) {
+        apiService.deleteTodo(todo).then((r) => {
+          if (r.status === 204) {
+            alert('Todo deleted!');
+            this.$router.go();
+          }
+        })
+      },
 
-            selectTodo(todo) {
-                this.console.log(todo)
-            }
-        },
-        mounted() {
-            this.getTodos();
-        },
-    }
+      selectTodo(todo) {
+        this.console.log(todo)
+      }
+    },
+    mounted() {
+      this.getTodos();
+    },
+  }
 </script>
 <style scoped>
     .list-horizontal li {

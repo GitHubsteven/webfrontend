@@ -1,0 +1,20 @@
+{
+  "name": "express-hpm",
+  "version": "1.0.0",
+  "description": "test project for express and http-proxy-middleware",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "express",
+    "http-proxy-middleware"
+  ],
+  "author": "asaland",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-router": "0.0.1",
+    "http-proxy-middleware": "^0.19.1"
+  }
+}

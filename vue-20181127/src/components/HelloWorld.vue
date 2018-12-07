@@ -47,8 +47,8 @@
     },
     mounted() {
       ajaxService
-        .get('http://127.0.0.1:8765/hi?name=asa')
-        .then(response => (this.msg = response.data.time))
+        .get('/api/hi', {name: 'x-man'})
+        .then(response => (this.msg = response.data))
     }
   }
 </script>

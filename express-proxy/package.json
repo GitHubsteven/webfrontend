@@ -1,0 +1,19 @@
+{
+  "name": "express-proxy",
+  "version": "1.0.0",
+  "description": "express-proxy",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "proxy",
+    "express"
+  ],
+  "author": "asaland",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1"
+  }
+}
