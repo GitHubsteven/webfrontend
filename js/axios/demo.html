@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="javascript">
+  const axios = require('axios');
+  import qs from 'qs';
+
+
+  axios.get('/user?id=12345')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    }).then(function () {
+    //always executed
+    console.log("always execute")
+  });
+
+  axios.get('/user', {
+    params: {
+      id: 12345
+    }
+  }).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+  }).then(() => {
+    console.log("finally")
+  });
+
+  async function getUser() {
+    try {
+      let response = await axios.get('/user?id=12345');
+      console.log(response)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  //as a post api
+  axios.post('/user', {
+    firstName: 'fred',
+    lastName: 'stone'
+  }).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+  });
+
+  //concurrent requests
+  function getUserAccont() {
+    return axios.get('/user/12345');
+  }
+
+  function getUserPermession() {
+    return axios.get('/user/12345/permissions');
+  }
+
+  axios.all([getUserAccont(), getUserPermession()])
+    .then(axios.spread(function (acct, perms) {
+      //both request are now complete//
+    }));
+  // Send a POST request
+  axios({
+    method: 'post',
+    url: '/user/12345',
+    data: {
+      firstName: 'Fred',
+      lastName: 'stone'
+    }
+  });
+
+  axios({
+    method: 'get',
+    url: 'http://bit.ly/2mTM3nY',
+    responseType: 'stream'
+  }).then(function (response) {
+    response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  });
+
+  let instance = axios.create({
+    baseURL: 'https://some-domain.com/api/',
+    timeout: 1000,
+    headers: {'X-Custom-Header': 'foobar'}
+  });
+
+  axios.request({
+    baseURL: 'https://some-domain.com/api/',
+    transformRequest: [function (data, headers) {
+      // Do whatever you want to transform the data
+      data.name = 'x';
+      return data;
+    }],
+    transformResponse: [function (data) {
+      // Do whatever you want to transform the data
+
+      return data;
+    }],
+    // `headers` are custom headers to be sent
+    headers: {'X-Requested-With': 'XMLHttpRequest'},
+  });
+
+  axios.get('/user/12345')
+    .then(function (response) {
+      console.log(response.data);
+      console.log(response.status);
+      console.log(response.statusText);
+      console.log(response.headers);
+      console.log(response.config);
+    });
+
+  axios.defaults.baseURL = 'https://api.example.com';
+  axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+  /**
+   * instance-object
+   */
+  let instance = axios.create();
+
+  /**
+   * static public fields
+   * @type {number}
+   */
+  instance.defaults.timeout = 2500;
+  /**
+   * object, member fields
+   */
+  instance.get('/user', {
+    timeout: 500
+  });
+
+  axios.interceptors.request.use(function (config) {
+    return config;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+
+  axios.interceptors.response.use(function (response) {
+    return response;
+  }, (error) => {
+    return Promise.reject(error);
+  })
+  let myinterceptor = axios.interceptors.request.use(() => {
+
+  });
+  axios.interceptors.request.eject(myinterceptor);
+
+  // Cancellation
+  let cancelToken = axios.CancelToken;
+  let source = cancelToken.source();
+
+  axios.get('/user/12345', {
+    cancelToken: source.token
+  }).catch((thrown) => {
+    if (axios.isCancel(thrown)
+    ) {
+
+    }
+    else {
+
+    }
+  })
+
+</script>
+</body>
+</html>
