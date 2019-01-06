@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component-register</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <link rel="stylesheet" href="css/case.css">
+</head>
+<body>
+<div id="app">
+    <component-a></component-a>
+    <component-b></component-b>
+    <hello></hello>
+</div>
+<script type="text/javascript">
+    //        import Hello from '../component/Hello.vue'
+    //局部注册
+    let ComponentA = {/* ... */};
+    let ComponentB = {
+        data() {
+            return {
+                msg: 'ComponentB'
+            }
+        },
+        template: `<div><p>hello,{{msg}}</p></div>`
+    };
+
+    new Vue({
+        el: '#app',
+        components: {
+            'component-a': ComponentA,
+            'component-b': ComponentB,
+//                'hello':Hello
+        }
+    })
+</script>
+</body>
+</html>

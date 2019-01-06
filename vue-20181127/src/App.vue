@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <Header class="header"/>
+    <header class="header"/>
     <el-container class="body">
       <el-aside class="aside">
-        <Aside/>
+        <aside/>
       </el-aside>
       <el-main class="main">
         <router-view/>
       </el-main>
     </el-container>
-    <Footer class="footer"/>
+    <footer class="footer"/>
   </div>
 </template>
 
@@ -21,7 +21,7 @@
 
   export default {
     name: 'App',
-    components: {Aside, Footer, Header}
+    components: {'aside': Aside, 'footer': Footer, 'header': Header}
   }
 </script>
 

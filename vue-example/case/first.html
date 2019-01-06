@@ -1,33 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html xmlns: xmlns: xmlns: xmlns: xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <link rel="stylesheet" href="css/case.css">
 </head>
 <body>
 <div id="vue_det">
     <h2>site:{{site}}</h2>
     <h2>url:{{url}}</h2>
     <h2>tips:{{details()}}</h2>
+    <p>Original message: "{{ message }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    <p>
+        Ask a yes/no question:
+        <label>
+            <input v-model="question">
+        </label>
+    </p>
+    <p>{{ answer }}</p>
+    <div class="static"
+         :class="{ active: isActive, 'text-danger': hasError }">
+        <p>class test div</p>
+    </div>
+    <div :class="[isActive ? activeClass : '', errorClass]"></div>
+    <p>
+        <button-counter></button-counter>
+    </p>
+    <p>
+        <label>{{searchText}}</label>
+        <custom-input
+                :value="searchText"
+                v-on:input="searchText = $event"
+        ></custom-input>
+        <alert-box>something bad?</alert-box>
+    </p>
+    <button
+            v-for="tab in tabs"
+            :key="tab"
+            :class="['tab-button', { active: currentTab === tab }]"
+            v-on:click="currentTab = tab"
+    >{{ tab }}</button>
+
+    <component
+            v-bind:is="currentTabComponent"
+            class="tab"
+    ></component>
 </div>
 <script type="text/javascript">
     let data = {
         site: "google",
         url: "",
-        alexa: "10000"
+        alexa: "10000",
+        message: 'Hello',
+        question: '',
+        answer: 'I cannot give you an answer until you ask a question!',
+        isActive: false,
+        hasError: true,
+        errorClass: "",
+        searchText: "searchText",
+        currentTab: 'Home',
+        tabs: ['Home', 'Posts', 'Archive']
     };
+    //为什么必须要在vm实例的创建之前呢？
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    });
+    Vue.component('custom-input', {
+        props: ['value'],
+        template: `
+                <input
+                  v-bind:value="value"
+                  v-on:input="$emit('input', $event.target.value)"
+                >
+  `
+    });
+    Vue.component('alert-box', {
+        template: `
+                    <div class="demo-alert-box">
+                      <strong>Error!</strong>
+                      <slot></slot>
+                    </div>
+                  `
+    });
+    Vue.component('tab-home', {
+        template: '<div>Home component</div>'
+    });
+    Vue.component('tab-posts', {
+        template: '<div>Posts component</div>'
+    });
+    Vue.component('tab-archive', {
+        template: '<div>Archive component</div>'
+    });
     let vm = new Vue({
         el: "#vue_det",
         data: data,
         methods: {
             details: function () {
                 return "hello, " + this.site;
+            },
+            getAnswer: function () {
+                if (this.question.indexOf('?') === -1) {
+                    this.answer = 'Questions usually contain a question mark. ;-)';
+                    return
+                }
+                this.answer = 'Thinking...';
+                let vm = this;
+                axios.get('https://yesno.wtf/api')
+                    .then(function (response) {
+                        vm.answer = _.capitalize(response.data.answer)
+                    })
+                    .catch(function (error) {
+                        vm.answer = 'Error! Could not reach the API. ' + error
+                    })
+            }
+        },
+        created: function () {
+            // `_.debounce` 是一个通过 Lodash 限制操作频率的函数。
+            // 在这个例子中，我们希望限制访问 yesno.wtf/api 的频率
+            // AJAX 请求直到用户输入完毕才会发出。想要了解更多关于
+            // `_.debounce` 函数 (及其近亲 `_.throttle`) 的知识，
+            // 请参考：https://lodash.com/docs#debounce
+            this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+        },
+        watch: {
+            // 如果 `question` 发生改变，这个函数就会运行
+            question: function (newQuestion, oldQuestion) {
+                this.answer = 'Waiting for you to stop typing...'
+                this.debouncedGetAnswer()
+            }
+        },
+        computed: {
+            // 计算属性的 getter
+            reversedMessage: function () {
+                // `this` 指向 vm 实例
+                return this.message.split('').reverse().join('')
+            },
+            currentTabComponent: function () {
+                return 'tab-' + this.currentTab.toLowerCase()
             }
         }
     });
 
-    document.write(vm.$data === data);
+    //    document.write(vm.$data === data);
 </script>
 </body>
 </html>
