@@ -1,6 +1,6 @@
 #### 介绍
 这是一篇关于webpack的尝试项目，关于webpack的一些基本概念的笔记和尝试，
-推荐博客：https://www.jianshu.com/p/42e11515c10f。
+推荐博客：https://www.jianshu.com/p/42e11515c10f
 
 ##### 什么是webpack？
 前端项目管理工具，WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，

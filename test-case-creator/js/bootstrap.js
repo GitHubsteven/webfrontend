@@ -635,7 +635,7 @@ var Carousel = function ($) {
     };
 
     Carousel.prototype.nextWhenVisible = function nextWhenVisible() {
-      // Don't call next when the page isn't visible
+      // Don't call next when the pages isn't visible
       if (!document.hidden) {
         this.next();
       }
