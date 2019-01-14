@@ -13,10 +13,10 @@ module.exports = {
   ],
   devServer:
     {
-      hot: true,
-      watchOptions: {
-        poll: true
-      }
+  hot: true,
+    watchOptions: {
+    poll: true
+  }
     },
   module: {
     rules: [
