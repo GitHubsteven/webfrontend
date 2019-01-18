@@ -2,46 +2,21 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
-  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue-20181127</title>
 </head>
 <body>
-<!--<div>-->
-  <!--<div id="app"></div>-->
-  <!--&lt;!&ndash;<div id="vue_det">&ndash;&gt;-->
-    <!--&lt;!&ndash;<h2>site:{{site}}</h2>&ndash;&gt;-->
-    <!--&lt;!&ndash;<h2>url:{{url}}</h2>&ndash;&gt;-->
-    <!--&lt;!&ndash;<h2>tips:{{details()}}</h2>&ndash;&gt;-->
-  <!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--</div>-->
-<div id="app"></div>
-
-<script type="text/javascript">
-  // import App from 'App.vue';
-
-  let data = {
-    site: "google",
-    url: "",
-    alexa: "10000"
-  };
-  let vm = new Vue({
-    el: "#vue_det",
-    data: data,
-    // components: {App},
-    methods: {
-      details: function () {
-        return "hello, " + this.site;
-      }
-    }
-  });
-
-  document.write(vm.$data === data);
-</script>
+<div id="app">
+  <p> very sad!</p>
+  <app></app>
+</div>
+<!-- built files will be auto injected -->
 </body>
 </html>
 <script>
   import App from "./App";
-
+  // import bundle from '../build/build.js'
   export default {
     components: {App}
   }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>self define html tag</title>
+    <link rel="import" href="share-buttons.html">
+</head>
+<body>
+<greeting>why?</greeting>
+
+<article>
+    <h1>Title</h1>
+    <share-buttons/>
+    ... ...
+</article>
+<my-element content="custom element">
+    Hello
+</my-element>
+<script>
+  function customTag(tagName, fn) {
+    Array
+      .from(document.getElementsByTagName(tagName))
+      .forEach(fn);
+  }
+
+  function greetingHandler(element) {
+    element.innerHTML = 'Hello,world';
+  }
+
+  customTag('greeting', greetingHandler);
+
+  let xTabs = document.createElement("x-tabs");
+
+  console.log(xTabs instanceof HTMLUnknownElement);
+  console.log(xTabs instanceof HTMLElement);
+
+  class MyElement extends HTMLElement {
+    get content() {
+      return this.getAttribute('content');
+    }
+
+    set content(val) {
+      this.setAttribute('content', val);
+    }
+  }
+  function myElementHandler(element) {
+    element.textConent = element.content;
+  }
+  customTag('my-element', myElementHandler);
+
+  window.customElements.define('my-element', MyElement);
+</script>
+</body>
+
+<style>
+    greeting {
+        display: block;
+        font-size: 36px;
+        color: red;
+    }
+</style>
+</html>
