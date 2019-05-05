@@ -32,4 +32,13 @@ var Teacher = /** @class */ (function () {
 }());
 var user2 = new Student("jane", "M.", "user");
 var teacher = new Teacher("cn", "wuhan", "ccnu");
+/*
 document.body.innerHTML = greeter1(teacher);
+
+ error TS2345: Argument of type 'Teacher' is not assignable to parameter of type 'Person'.
+ Property 'firstName' is missing in type 'Teacher'.
+
+It looks wired, class student does not implement or extend person, however, the function greeter can receive the student rather than class teacher
+so, can we say that typescript judge class relation by constructor or properties ?
+
+ */

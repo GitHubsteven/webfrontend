@@ -16,6 +16,6 @@
 
 <style>
     html {
-        background: deepskyblue;
+        background: ghostwhite;
     }
 </style>
