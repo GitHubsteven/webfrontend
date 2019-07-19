@@ -11,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="todo in todos" v-bind:key="todo.id" @click="selectTodo(todo)">
+            <tr v-for="todo in todos" v-bind:key="todo.id" @click="selectTodo(todo)">t
                 <th></th>
                 <td>{{todo.name}}</td>
                 <td>

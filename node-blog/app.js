@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-let mongoose = require('mongoose');
+let mongoose = require('mongo');
 const mongourl = "mongodb://localhost:27017/node-blog";
 mongoose.connect(mongourl);
 let bodyParser = require('body-parser');
