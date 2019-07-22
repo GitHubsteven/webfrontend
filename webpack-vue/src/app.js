@@ -1,7 +1,26 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuex from "vuex"
+
+Vue.use(Vuex);
+
+let store = new Vuex.Store({
+  state: {
+    name: "",
+    count: 0
+  },
+  mutations: {},
+  actions: {},
+  getters: {}
+})
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  store,
+  render: h => h(App),
+  computed: {
+    count: () => {
+      return this.$store.state.count;
+    }
+  },
 });

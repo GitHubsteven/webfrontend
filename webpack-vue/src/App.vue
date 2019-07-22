@@ -1,6 +1,6 @@
 <template>
     <div class="full-width center-content">
-        <hello-component name="vue" />
+        <hello-component name="vuex"/>
     </div>
 </template>
 
@@ -11,6 +11,6 @@
     name: "App",
     components: {
       HelloComponent
-    }
+    },
   }
 </script>

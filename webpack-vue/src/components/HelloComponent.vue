@@ -1,13 +1,24 @@
 <template>
-    <h1>Hello {{ name }}!</h1>
+    <h1>{{count}}</h1>
 </template>
 <script>
   export default {
-    name:'HelloComponent',
+    name: 'HelloComponent',
     props: {
       name: {
         type: String,
         required: true
+      }
+    },
+    methods: {},
+    mounted: {},
+    created: {},
+    beforeCreate: {},
+    beforeMount: {},
+    computed: {
+      count: () => {
+        // return this.$store.state.count;
+        return 0;
       }
     }
   }
