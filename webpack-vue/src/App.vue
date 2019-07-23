@@ -1,16 +1,22 @@
 <template>
     <div class="full-width center-content">
-        <hello-component name="vuex"/>
+        <ul>
+            <li>
+                <router-link to="/hello">hello</router-link>
+            </li>
+            <li>
+                <router-link to="/reflect">reflect</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-  import HelloComponent from './components/HelloComponent.vue'
+  import router from "./router/index.js"
 
   export default {
     name: "App",
-    components: {
-      HelloComponent
-    },
+    router
   }
 </script>

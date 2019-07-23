@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{count}}</h1>
-        <h2>hello</h2>
+        <h2>hello, {{name}}</h2>
     </div>
 </template>
 <script>
@@ -10,19 +10,20 @@
     props: {
       name: {
         type: String,
-        required: true
+        required: false,
+        default: "world"
       }
     },
-    data () {
-
+    data() {
+      return {}
     },
     methods: {
       addCount: () => {
-
+        // this.$store.commit("")
       }
     },
     computed: {
-      count () {
+      count() {
         return this.$store.state.count
       }
     }

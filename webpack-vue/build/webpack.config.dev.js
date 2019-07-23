@@ -12,6 +12,7 @@ module.exports = {
   devServer:
     {
       hot: true,
+      port: 7777,
       watchOptions: {
         poll: true
       }
