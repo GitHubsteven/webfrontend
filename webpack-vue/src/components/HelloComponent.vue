@@ -1,5 +1,8 @@
 <template>
-    <h1>{{count}}</h1>
+    <div>
+        <h1>{{count}}</h1>
+        <h2>hello</h2>
+    </div>
 </template>
 <script>
   export default {
@@ -10,15 +13,17 @@
         required: true
       }
     },
-    methods: {},
-    mounted: {},
-    created: {},
-    beforeCreate: {},
-    beforeMount: {},
+    data () {
+
+    },
+    methods: {
+      addCount: () => {
+
+      }
+    },
     computed: {
-      count: () => {
-        // return this.$store.state.count;
-        return 0;
+      count () {
+        return this.$store.state.count
       }
     }
   }

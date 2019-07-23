@@ -4,8 +4,6 @@ const {VueLoaderPlugin} = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 // let WebpackHotServerMiddleWare = require('webpack-hot-server-middleware');
-
-
 module.exports = {
   mode: 'development',
   entry: [
@@ -13,11 +11,16 @@ module.exports = {
   ],
   devServer:
     {
-  hot: true,
-    watchOptions: {
-    poll: true
-  }
+      hot: true,
+      watchOptions: {
+        poll: true
+      }
     },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
+  },
   module: {
     rules: [
       {
@@ -50,4 +53,4 @@ module.exports = {
       inject: true
     })
   ]
-};
+}
