@@ -2,6 +2,7 @@
     <div>
         <h1>{{count}}</h1>
         <h2>hello, {{name}}</h2>
+        <button v-on:click="addCount()">add</button>
     </div>
 </template>
 <script>
@@ -11,19 +12,22 @@
       name: {
         type: String,
         required: false,
-        default: "world"
+        default: 'world'
       }
     },
-    data() {
+    data () {
       return {}
     },
     methods: {
-      addCount: () => {
-        // this.$store.commit("")
+      addCount: function () {
+        this.$store.commit('increment')
+      },
+      custom () {
+        alert('hello,world')
       }
     },
     computed: {
-      count() {
+      count () {
         return this.$store.state.count
       }
     }
