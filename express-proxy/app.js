@@ -1,21 +1,20 @@
 let express = require('express');
 let proxy = require('http-proxy-middleware');
 let app = new express();
-let TARGET_SERVER = "http://locahost:8080";
+let TARGET_SERVER = "http://locahost:9010";
 
-app.use('/api', proxy({
-  target: TARGET_SERVER,
-  changeOrigin: true,
-  pathRewrite: {
-    '^/api': ''
-  }
-}));
+app.use('/',
+  proxy({
+    target: 'http://locahost:9010',
+    changeOrigin: true,
+    secure: false
+  }));
 
 app.use(express.static('dist'));
 app.get('*', function (req, res) {
   res.sendFile('./dist/index.html');
 });
 
-app.listen(80, function () {
-  console.log('链接成功');
+app.listen(11000, function () {
+  console.log('start localhost:11000 successfully!');
 });
