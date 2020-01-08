@@ -1,5 +1,5 @@
 module.exports = function () {
   let greet = document.createElement('div');
-  greet.textContent = 'Hi there and greetings';
+  greet.textContent = 'hello,webpack dev-server';
   return greet;
 };
