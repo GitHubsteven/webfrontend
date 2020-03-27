@@ -1,5 +1,7 @@
 <template>
     <div class="full-width center-content">
+        <label> username:</label>
+        <label><span>{{username}}</span></label>
         <ul>
             <li>
                 <router-link to="/hello">hello</router-link>
@@ -13,10 +15,15 @@
 </template>
 
 <script>
-  import router from "./router/index.js"
+  import router from './router/index.js'
 
   export default {
-    name: "App",
-    router
+    name: 'App',
+    router,
+    computed: {
+      username () {
+        return this.$store.getters.username
+      }
+    }
   }
 </script>
