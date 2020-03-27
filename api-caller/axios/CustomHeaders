@@ -1,0 +1,11 @@
+let axios = require("axios");
+
+function customHeader() {
+    const options = {
+        headers: {'X-Custom-Header': 'value'}
+    };
+
+    axios.post('/save', {a: 10}, options);
+}
+
+customHeader();
