@@ -14,7 +14,7 @@
     "express-generator": "^4.16.0",
     "express-session": "^1.15.6",
     "gmaps": "^0.4.24",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ladash": "^1.2.0",
     "local": "^0.3.3",
     "lodash": "^4.17.11",
